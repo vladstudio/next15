@@ -1,8 +1,5 @@
 import Form from "next/form";
-import {
-  fetchSampleData,
-  revalidateSampleData,
-} from "@/app/server-actions/sampleData";
+import { fetchSampleData, revalidateSampleData } from "./actions";
 
 export default async function Page({ searchParams }) {
   const simulateError = (await searchParams).simulateError;
