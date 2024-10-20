@@ -17,8 +17,8 @@ input {
   @apply border border-stone-400;
 }
 
-button {
-  @apply bg-stone-200 hover:bg-stone-300;
+button, a {
+  @apply bg-amber-100 hover:bg-orange-200;
 }
 
 [disabled],
@@ -31,7 +31,4 @@ ul {
 }
 label {
   @apply grid gap-1;
-}
-a {
-  @apply underline hover:bg-amber-100;
 }
