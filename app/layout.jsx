@@ -19,6 +19,7 @@ export default async function Page({ children }) {
             {!!user?.isLoggedin ? (
               <>
                 <p>Hey, {user.email}!</p>
+                <div className="flex-1"></div>
                 <form action={signOutAction}>
                   <button type="submit">Sign out</button>
                 </form>
