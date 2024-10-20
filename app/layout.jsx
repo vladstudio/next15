@@ -16,10 +16,10 @@ export default async function Page({ children }) {
         <div className="mx-auto max-w-xl m-8 grid gap-4">
           <div className="flex gap-4">
             <Link href="/">Home</Link>
+            <div className="flex-1"></div>
             {!!user?.isLoggedin ? (
               <>
                 <p>Hey, {user.email}!</p>
-                <div className="flex-1"></div>
                 <form action={signOutAction}>
                   <button type="submit">Sign out</button>
                 </form>
