@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Inter, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-xl font-semibold;
+}
+
+input {
+  @apply border border-stone-400;
+}
+
+button {
+  @apply bg-stone-200 hover:bg-stone-300;
+}
+
+[disabled],
+.disabled,
+:disabled {
+  @apply opacity-50 pointer-events-none;
+}
+ul {
+  @apply list-disc list-inside;
+}
+label {
+  @apply grid gap-1;
+}
+a {
+  @apply underline hover:bg-amber-100;
+}
