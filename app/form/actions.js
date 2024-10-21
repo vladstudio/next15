@@ -8,7 +8,7 @@ export async function saySomethingAction(prevState, rawFormData) {
   const formData = Object.fromEntries(rawFormData);
   try {
     // do something with the formData here
-    await setTimeout(1000);
+    if (!!formData.simulateDelay) await setTimeout(1000);
     if (!!formData.simulateError) throw new Error("Test");
 
     // you may want to

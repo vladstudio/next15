@@ -16,6 +16,10 @@ export default function Page() {
           <input type="checkbox" name="simulateError" value="1" /> Simulate
           error
         </p>
+        <p>
+          <input type="checkbox" name="simulateDelay" value="1" /> Simulate
+          slow network
+        </p>
         <button type="submit" disabled={isPending}>
           {isPending ? "○  ..." : "Submit"}
         </button>
