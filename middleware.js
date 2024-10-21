@@ -9,7 +9,7 @@ export default async function middleware(request) {
 
   const userData = (await updateSession(request))?.data?.user;
   let user = { isLoggedin: false };
-  
+
   if (!!userData?.id) {
     user = {
       isLoggedin: true,

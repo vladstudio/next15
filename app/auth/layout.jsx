@@ -1,4 +1,4 @@
-export default function Page({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       (this is an auth layout)

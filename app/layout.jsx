@@ -7,7 +7,7 @@ export const metadata = {
   title: "Testing Next 15",
 };
 
-export default async function Page({ children }) {
+export default async function Layout({ children }) {
   const user = await getUser();
 
   return (

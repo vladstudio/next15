@@ -1,4 +1,4 @@
-export default function Page({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       <h3>Fetch datа from server</h3>
