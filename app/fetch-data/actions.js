@@ -5,7 +5,7 @@ import axios from "redaxios";
 
 const url = "https://jsonplaceholder.typicode.com/todos";
 
-export const fetchSampleData = ({ simulateError, simulateDelay }) => {
+export async function fetchSampleData({ simulateError, simulateDelay }) {
   return new Promise((resolve, reject) => {
     axios.get(url).then(async (json) => {
       if (simulateDelay) await setTimeout(1000);
@@ -15,8 +15,8 @@ export const fetchSampleData = ({ simulateError, simulateDelay }) => {
       resolve(data);
     });
   });
-};
+}
 
-export const revalidateSampleData = () => {
+export async function revalidateSampleData() {
   revalidatePath("/fetch-data");
-};
+}
