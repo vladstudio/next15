@@ -4,7 +4,7 @@ import { setTimeout } from "timers/promises";
 // import { revalidatePath } from "next/cache";
 // import { redirect } from "next/navigation";
 
-export async function saySomethingAction(prevState, rawFormData) {
+export async function saySomething(prevState, rawFormData) {
   const formData = Object.fromEntries(rawFormData);
   try {
     // do something with the formData here

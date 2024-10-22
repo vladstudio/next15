@@ -1,6 +1,6 @@
 "use client";
 import { useState, useActionState, useEffect } from "react";
-import { addTodoAction } from "./actions";
+import { addTodoAction } from "./server";
 import Form from "next/form";
 
 export function Client({ fetchedTodos }) {

@@ -5,15 +5,9 @@ export default function Layout({ children }) {
       <hr />
       {children}
       <hr />
-      <a href="/fetch-data">
-        Reload
-      </a>
-      <a href="/fetch-data/?simulateDelay=1">
-        Reload with slow network
-      </a>
-      <a href="/fetch-data/?simulateError=1">
-        Reload with error
-      </a>
+      <a href="/fetch-data">Reload</a>
+      <a href="/fetch-data/?simulateDelay=1">Reload with slow network</a>
+      <a href="/fetch-data/?simulateError=1">Reload with error</a>
     </>
   );
 }

@@ -2,11 +2,11 @@
 
 import Form from "next/form";
 import { useActionState } from "react";
-import { saySomethingAction } from "./actions";
+import { saySomething } from "./server";
 import {} from "react";
 
 export default function Page() {
-  const [result, _action, isPending] = useActionState(saySomethingAction, null);
+  const [result, _action, isPending] = useActionState(saySomething, null);
   return (
     <>
       <Form action={_action} className="grid gap-4">
@@ -17,8 +17,8 @@ export default function Page() {
           error
         </p>
         <p>
-          <input type="checkbox" name="simulateDelay" value="1" /> Simulate
-          slow network
+          <input type="checkbox" name="simulateDelay" value="1" /> Simulate slow
+          network
         </p>
         <button type="submit" disabled={isPending}>
           {isPending ? "○  ..." : "Submit"}
