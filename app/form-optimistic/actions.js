@@ -21,11 +21,14 @@ export async function addTodoAction(prevState, rawFormData) {
   const cookieStore = await cookies();
   try {
     await setTimeout(1000);
-    if (!!formData.simulateError) throw new Error("Test");
+    if (!!formData.simulateError) {
+      revalidatePath("/form-optimistic");
+      throw new Error(`Something went wrong.`);
+    }
     const newTodo = { text: formData.text };
     const newTodos = [...(await getTodosFromFakeDatabase()), newTodo];
-    cookieStore.set("todos", JSON.stringify(newTodos));
     revalidatePath("/form-optimistic");
+    cookieStore.set("todos", JSON.stringify(newTodos));
     return newTodo;
   } catch (e) {
     return { error: e.message };

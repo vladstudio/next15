@@ -3,11 +3,11 @@ import { useState, useActionState, useEffect } from "react";
 import { addTodoAction } from "./actions";
 import Form from "next/form";
 
-export function Client({ serverTodos }) {
+export function Client({ fetchedTodos }) {
   const [todos, setTodos] = useState([]);
   useEffect(() => {
-    setTodos(serverTodos);
-  }, [serverTodos]);
+    setTodos(fetchedTodos);
+  }, [fetchedTodos]);
 
   const [newTodoText, setNewTodoText] = useState("");
   const [result, _action, isPending] = useActionState(addTodoAction, null);

@@ -1,11 +1,7 @@
+"use server";
 import { fetchTodosAction } from "./actions";
 import { Client } from "./Client";
 
 export default async function Page() {
-  const serverTodos = await fetchTodosAction();
-  return (
-    <>
-      <Client serverTodos={serverTodos} />
-    </>
-  );
+  return <Client fetchedTodos={await fetchTodosAction()} />;
 }
