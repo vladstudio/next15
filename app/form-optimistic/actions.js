@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { setTimeout } from "timers/promises";
 import { revalidatePath } from "next/cache";
 
-async function getTodosFromCookies() {
+async function getTodosFromFakeDatabase() {
   const cookieStore = await cookies();
   return JSON.parse(cookieStore.get("todos")?.value || null) || [];
 }
@@ -11,7 +11,7 @@ async function getTodosFromCookies() {
 export async function fetchTodosAction() {
   console.log("fetchTodosAction");
   await setTimeout(1000);
-  const todos = await getTodosFromCookies();
+  const todos = await getTodosFromFakeDatabase();
   console.log("todos", todos);
   return todos;
 }
@@ -23,7 +23,7 @@ export async function addTodoAction(prevState, rawFormData) {
     await setTimeout(1000);
     if (!!formData.simulateError) throw new Error("Test");
     const newTodo = { text: formData.text };
-    const newTodos = [...(await getTodosFromCookies()), newTodo];
+    const newTodos = [...(await getTodosFromFakeDatabase()), newTodo];
     cookieStore.set("todos", JSON.stringify(newTodos));
     revalidatePath("/form-optimistic");
     return newTodo;
