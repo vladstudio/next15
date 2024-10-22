@@ -2,10 +2,10 @@
 
 import Form from "next/form";
 import { useActionState } from "react";
-import { resetPasswordAction } from "./actions";
+import { resetPassword } from "./server";
 
 export default function Page() {
-  const [result, _action, isPending] = useActionState(resetPasswordAction, null);
+  const [result, _action, isPending] = useActionState(resetPassword, null);
   return (
     <Form action={_action} className="grid gap-4">
       <h1>Reset password</h1>
@@ -26,7 +26,7 @@ export default function Page() {
       <button type="submit" disabled={isPending}>
         {isPending ? "○  ..." : "Reset password"}
       </button>
-            {!!result && <p>{JSON.stringify(result, null, 2)}</p>}
+      {!!result && <p>{JSON.stringify(result, null, 2)}</p>}
     </Form>
   );
 }

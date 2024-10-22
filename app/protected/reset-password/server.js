@@ -3,7 +3,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
-export async function resetPasswordAction(prevState, rawFormData) {
+export async function resetPassword(prevState, rawFormData) {
   const formData = Object.fromEntries(rawFormData);
   const supabase = await createClient();
 
