@@ -1,7 +1,7 @@
-import { signOutAction } from "@/app/auth/sign-in/actions";
-import "./globals.css";
-import Link from "next/link";
 import { getUser } from "@/utils/getUser";
+import { signOutAction } from "@/app/auth/sign-in/actions";
+import Link from "next/link";
+import "./globals.css";
 
 export const metadata = {
   title: "Testing Next 15",
