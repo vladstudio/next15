@@ -1,6 +1,6 @@
 import Form from "next/form";
 import { fetchSampleData, revalidateSampleData } from "./server";
-import RevlidateOnFocus from "./ClientWrapper";
+import RevlidateOnFocus from "./RevlidateOnFocus";
 
 export default async function Page({ searchParams }) {
   const { simulateError, simulateDelay } = await searchParams;
