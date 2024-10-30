@@ -1,19 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function RefreshOnFocus() {
+function Client() {
   const router = useRouter();
 
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
-        console.log("RefreshOnFocus");
         router.refresh();
       }
     };
-
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -21,4 +19,8 @@ export default function RefreshOnFocus() {
   }, [router]);
 
   return null;
+}
+
+export default function RevlidateOnFocus() {
+  return <Client />;
 }
