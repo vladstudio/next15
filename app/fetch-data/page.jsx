@@ -1,18 +1,27 @@
+"use server";
 import Form from "next/form";
 import { fetchSampleData, revalidateSampleData } from "./server";
+import { Suspense } from "react";
 import RevalidateOnFocus from "./RevalidateOnFocus";
 
-export default async function Page({ searchParams }) {
-  const { simulateError, simulateDelay } = await searchParams;
+async function Data({ props }) {
+  const { simulateError, simulateDelay } = props;
   const sampleData = await fetchSampleData({ simulateError, simulateDelay });
+  return <pre className="text-xs">{JSON.stringify(sampleData, null, 2)}</pre>;
+}
+
+export default async function Page({ searchParams }) {
+  const props = await searchParams;
   return (
     <>
-      <RevalidateOnFocus />
-      <pre className="text-xs">{JSON.stringify(sampleData, null, 2)}</pre>
+      <Suspense fallback={<>Loading...</>}>
+        <Data props={props} />
+      </Suspense>
       <hr />
       <Form action={revalidateSampleData}>
         <button type="submit">Revalidate</button>
       </Form>
+      <RevalidateOnFocus />
     </>
   );
 }

@@ -6,15 +6,12 @@ import axios from "redaxios";
 const url = "https://jsonplaceholder.typicode.com/todos";
 
 export async function fetchSampleData({ simulateError, simulateDelay }) {
-  return new Promise((resolve, reject) => {
-    axios.get(url).then(async (json) => {
-      if (simulateDelay) await setTimeout(1000);
-      if (simulateError) reject(new Error("Test"));
-      // shuffle and slice
-      let data = json.data.sort(() => 0.5 - Math.random()).slice(0, 3);
-      resolve(data);
-    });
-  });
+  const json = await axios.get(url);
+  if (simulateDelay) await setTimeout(1000);
+  if (simulateError) reject(new Error("Test"));
+  // shuffle and slice
+  let data = json.data.sort(() => 0.5 - Math.random()).slice(0, 3);
+  return data;
 }
 
 export async function revalidateSampleData() {
